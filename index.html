@@ -28,9 +28,26 @@ map = new mapboxgl.Map({
     },
     layers: [
       {
-        id: 'iso3cd',
+        id: 'iso3cd-circle',
+        type: 'circle',
+        source: 'iso3cd',
+        layout: {
+        },
+        paint: {
+          'circle-radius': [
+            'interpolate',
+            ['exponential', 2],
+            ['zoom'],
+            0, 4,
+            22, 5000
+          ]
+        }
+      },
+      {
+        id: 'iso3cd-symbol',
         type: 'symbol',
         source: 'iso3cd',
+        minzoom: 2,
         layout: {
           'text-font': [ 'sans' ],
           'text-field': [ 'get', 'iso3cd' ]
