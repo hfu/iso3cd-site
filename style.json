@@ -47,8 +47,19 @@
           "sans"
         ],
         "text-field": [
-          "get",
-          "iso3cd"
+          "step",
+          [
+            "zoom"
+          ],
+          [
+            "get",
+            "iso3cd"
+          ],
+          4,
+          [
+            "get",
+            "name"
+          ]
         ]
       },
       "paint": {
