@@ -16,46 +16,7 @@ body { margin: 0; top: 0; bottom: 0; width: 100%; }
 <script>
 map = new mapboxgl.Map({
   container: 'map', 
-  style: {
-    version: 8,
-    sprite: 'https://hfu.github.io/unite-sprite/sprite',
-    glyphs: 'https://vectortiles.xyz/fonts/{fontstack}/{range}.pbf',
-    sources: {
-      iso3cd: {
-        type: 'geojson',
-        data: 'https://hfu.github.io/iso3cd-scaffold/scaffold.geojson'
-      }
-    },
-    layers: [
-      {
-        id: 'iso3cd-circle',
-        type: 'circle',
-        source: 'iso3cd',
-        layout: {
-        },
-        paint: {
-          'circle-radius': [
-            'interpolate',
-            ['exponential', 2],
-            ['zoom'],
-            1, 4,
-            4, 100
-          ],
-          'circle-color': ['rgb', 0, 100, 255]
-        }
-      },
-      {
-        id: 'iso3cd-symbol',
-        type: 'symbol',
-        source: 'iso3cd',
-        minzoom: 2,
-        layout: {
-          'text-font': [ 'sans' ],
-          'text-field': [ 'get', 'iso3cd' ]
-        }
-      }
-    ]
-  }, 
+  style: 'style.json',
   attributionControl: true, hash: true
 })
 map.on('load', function() {

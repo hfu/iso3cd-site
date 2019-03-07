@@ -1,0 +1,51 @@
+{
+  version: 8
+  sprite: https://hfu.github.io/unite-sprite/sprite
+  glyphs: https://vectortiles.xyz/fonts/{fontstack}/{range}.pbf
+  sources: {
+    iso3cd: {
+      type: geojson
+      data: https://hfu.github.io/iso3cd-scaffold/scaffold.geojson
+    }
+  }
+  layers: [
+    {
+      id: iso3cd-circle
+      type: circle
+      source: iso3cd
+      layout: {
+      }
+      paint: {
+        circle-radius: [
+          interpolate
+          [
+            exponential
+            2
+          ]
+          [
+            zoom
+          ]
+          0
+          4
+          4
+          100
+        ]
+      }
+    }
+    {
+      id: iso3cd-symbol
+      type: symbol
+      source: iso3cd
+      minzoom: 2
+      layout: {
+        text-font: [
+          sans
+        ]
+        text-field: [
+          get
+          iso3cd
+        ]
+      }
+    }
+  ]
+}
