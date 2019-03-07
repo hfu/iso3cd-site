@@ -32,9 +32,9 @@
         ]
         circle-color: [
           rgb
-          0
-          100
-          255
+          36
+          57
+          90
         ]
       }
     }
@@ -50,6 +50,14 @@
         text-field: [
           get
           iso3cd
+        ]
+      }
+      paint: {
+        text-color: [
+          rgb
+          255
+          255
+          255
         ]
       }
     }
